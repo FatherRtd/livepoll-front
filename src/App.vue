@@ -9,6 +9,7 @@ import HelloWorld from "@/components/HelloWorld.vue";
 
     <div class="flex place-items-start flex-wrap">
       <HelloWorld msg="You did it!" />
+      <v-btn rounded>Vuetify button</v-btn>
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
