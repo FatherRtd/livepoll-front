@@ -1,6 +1,6 @@
 export const login = () => {
-  //token = запрос;
-  //storage
+  //{data} = запрос;
+  //сохрнаить в localstorage
 };
 
 export const signup = () => {};
