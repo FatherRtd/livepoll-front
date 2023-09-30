@@ -2,8 +2,8 @@ import { RouteRecordRaw, createRouter, createWebHistory } from "vue-router";
 import HomeView from "@/views/HomeView.vue";
 import AuthView from "@/views/AuthView.vue";
 import ProfileView from "@/views/ProfileView.vue";
-import SignUpForm from "@/components/SignUpForm.vue";
-import LogInForm from "@/components/LogInForm.vue";
+import SignUpForm from "@/components/TheSignUpForm.vue";
+import LogInForm from "@/components/TheLogInForm.vue";
 
 export enum Routes {
   Home = "home",
@@ -16,6 +16,10 @@ export enum Routes {
 export const routes: RouteRecordRaw[] = [
   {
     path: "/",
+    redirect: "/home"
+  },
+  {
+    path: "/home",
     name: Routes.Home,
     component: HomeView
   },
