@@ -1,4 +1,4 @@
 export interface LoginRequest {
-  email: string; // api - password
+  email: string; // api - username
   password: string;
 }

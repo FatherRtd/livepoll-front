@@ -2,7 +2,7 @@
   <div>
     <v-toolbar>
       <v-toolbar-title>
-        <router-link :to="Routes.Home"><span>Livepoll</span></router-link>
+        <router-link :to="{ name: Routes.Home }"><span>Livepoll</span></router-link>
       </v-toolbar-title>
       <div v-if="!userStore.isAuthenticated">
         <v-btn :to="{ name: Routes.LogIn }">Login</v-btn>
@@ -26,7 +26,7 @@ const userStore = useUserStore();
 const logout = () => {
   userStore.setUser(null);
   clearToken();
-  router.push(Routes.Home);
+  router.push({ name: Routes.Home });
 };
 </script>
 

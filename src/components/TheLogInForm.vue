@@ -24,7 +24,7 @@ const testLogin = async () => {
     userStore.setUser(user);
   }
 
-  router.push(Routes.Home);
+  router.push({ name: Routes.Home });
 };
 </script>
 

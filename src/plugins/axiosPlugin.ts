@@ -1,5 +1,5 @@
 import router, { Routes } from "@/router";
-import { getToken, refresh } from "@/services/AuthService";
+import { getToken, refresh, setTokenToLocalStorage } from "@/services/AuthService";
 import { useUserStore } from "@/stores/userStore";
 import AsyncLock from "async-lock";
 import axios from "axios";
@@ -43,10 +43,12 @@ export const AxiosPlugin: Plugin = {
 
             try {
               let accessToken = "";
+
               await lock.acquire("refresh-token", async () => {
                 accessToken = (await refresh()).access_token ?? "";
               });
 
+              setTokenToLocalStorage(accessToken);
               error.response.config.headers["Authorization"] = `Bearer ${accessToken}`;
 
               return axios(error.response.config);

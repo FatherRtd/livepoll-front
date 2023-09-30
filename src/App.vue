@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RouterView } from "vue-router";
-import { getUser } from "@/services/AuthService";
+import { getToken, getUser } from "@/services/AuthService";
 import { onMounted } from "vue";
 import { useUserStore } from "@/stores/userStore";
 import { User } from "@/models/User";
@@ -9,10 +9,12 @@ import TheUiNavBar from "@/components/Ui/TheUiNavBar.vue";
 const userStore = useUserStore();
 
 onMounted(async () => {
-  const user: User = await getUser();
+  if (getToken()) {
+    const user: User = await getUser();
 
-  if (user) {
-    userStore.setUser(user);
+    if (user) {
+      userStore.setUser(user);
+    }
   }
 });
 </script>
