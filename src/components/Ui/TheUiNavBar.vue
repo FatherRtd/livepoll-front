@@ -5,12 +5,12 @@
         <router-link :to="{ name: Routes.Home }"><span>Livepoll</span></router-link>
       </v-toolbar-title>
       <div v-if="!userStore.isAuthenticated">
-        <v-btn :to="{ name: Routes.LogIn }">Login</v-btn>
-        <v-btn :to="{ name: Routes.SignUp }">Signup</v-btn>
+        <v-btn :to="{ name: Routes.LogIn }">Войти</v-btn>
+        <v-btn :to="{ name: Routes.SignUp }">Зарегестрироваться</v-btn>
       </div>
       <div v-else>
-        <v-btn :to="{ name: Routes.Profile }">Profile</v-btn>
-        <v-btn @click="onLogout">Logout</v-btn>
+        <v-btn :to="{ name: Routes.Profile }">Профиль</v-btn>
+        <v-btn @click="onLogout">Выйти</v-btn>
       </div>
     </v-toolbar>
   </div>
