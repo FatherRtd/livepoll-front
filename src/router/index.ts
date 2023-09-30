@@ -4,6 +4,8 @@ import AuthView from "@/views/AuthView.vue";
 import ProfileView from "@/views/ProfileView.vue";
 import SignUpForm from "@/components/TheSignUpForm.vue";
 import LogInForm from "@/components/TheLogInForm.vue";
+import { useUserStore } from "@/stores/userStore";
+import { getToken } from "@/services/AuthService";
 
 export enum Routes {
   Home = "home",
@@ -54,9 +56,19 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
+  const token = getToken();
+
   if (to.matched.length === 0) {
     next({ name: Routes.Home });
   } else {
+    if (token && (to.name == Routes.LogIn || to.name == Routes.SignUp)) {
+      next({ name: Routes.Profile });
+    }
+
+    if (!token && to.name == Routes.Profile) {
+      next({ name: Routes.Auth });
+    }
+
     next();
   }
 });
