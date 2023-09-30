@@ -6,13 +6,14 @@
 </template>
 
 <script setup lang="ts">
+import router, { Routes } from "@/router";
 import { getUser, login } from "@/services/AuthService";
 import { useUserStore } from "@/stores/userStore";
 
 const userStore = useUserStore();
 
 const testLogin = async () => {
-  const response = await login({
+  await login({
     email: "test@test.test",
     password: "test"
   });
@@ -22,6 +23,8 @@ const testLogin = async () => {
   if (user) {
     userStore.setUser(user);
   }
+
+  router.push(Routes.Home);
 };
 </script>
 
