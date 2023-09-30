@@ -17,9 +17,7 @@ export const login = async (loginRequest: LoginRequest): Promise<TokenResponse> 
 };
 
 export const signup = async (signupRequest: SignupRequest): Promise<TokenResponse> => {
-  const body = `username=${signupRequest.userName}&email=${signupRequest.email}&password_hash=${signupRequest.password}`;
-
-  const { data } = await axios.post<TokenResponse>(endpoint + "/register", body);
+  const { data } = await axios.post<TokenResponse>(endpoint + "/register", signupRequest);
 
   setTokenToLocalStorage(data.access_token);
 
