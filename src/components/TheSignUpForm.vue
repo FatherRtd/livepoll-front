@@ -9,7 +9,7 @@
 <script setup lang="ts">
 import { SignupRequest } from "@/requests/SignupRequest";
 import router, { Routes } from "@/router";
-import { getUser, signup } from "@/services/AuthService";
+import { getCurrentUser, signup } from "@/services/AuthService";
 import { useUserStore } from "@/stores/userStore";
 import { ref } from "vue";
 
@@ -28,7 +28,7 @@ const testSignup = async () => {
 
   await signup(signupRequers);
 
-  const user = await getUser();
+  const user = await getCurrentUser();
 
   if (user) {
     userStore.setUser(user);

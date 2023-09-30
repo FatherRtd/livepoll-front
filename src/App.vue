@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RouterView } from "vue-router";
-import { getToken, getUser } from "@/services/AuthService";
+import { getToken, getCurrentUser } from "@/services/AuthService";
 import { onMounted } from "vue";
 import { useUserStore } from "@/stores/userStore";
 import { User } from "@/models/User";
@@ -10,7 +10,7 @@ const userStore = useUserStore();
 
 onMounted(async () => {
   if (getToken()) {
-    const user: User = await getUser();
+    const user: User = await getCurrentUser();
 
     if (user) {
       userStore.setUser(user);

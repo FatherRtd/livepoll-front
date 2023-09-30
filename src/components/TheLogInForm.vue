@@ -7,7 +7,7 @@
 
 <script setup lang="ts">
 import router, { Routes } from "@/router";
-import { getUser, login } from "@/services/AuthService";
+import { getCurrentUser, login } from "@/services/AuthService";
 import { useUserStore } from "@/stores/userStore";
 
 const userStore = useUserStore();
@@ -18,7 +18,7 @@ const testLogin = async () => {
     password: "test"
   });
 
-  const user = await getUser();
+  const user = await getCurrentUser();
 
   if (user) {
     userStore.setUser(user);

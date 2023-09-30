@@ -32,10 +32,15 @@ export const refresh = async (): Promise<TokenResponse> => {
   return data;
 };
 
-export const getUser = async (): Promise<User> => {
+export const getCurrentUser = async (): Promise<User> => {
   const { data } = await axios.get<User>(endpoint + "/me");
 
   return data;
+};
+
+export const logout = (): void => {
+  //TODO очистка cookie
+  clearToken();
 };
 
 export const getToken = (): string | null => {

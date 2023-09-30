@@ -10,7 +10,7 @@
       </div>
       <div v-else>
         <v-btn :to="{ name: Routes.Profile }">Profile</v-btn>
-        <v-btn @click="logout">Logout</v-btn>
+        <v-btn @click="onLogout">Logout</v-btn>
       </div>
     </v-toolbar>
   </div>
@@ -19,13 +19,13 @@
 <script setup lang="ts">
 import { useUserStore } from "@/stores/userStore";
 import router, { Routes } from "@/router";
-import { clearToken } from "@/services/AuthService";
+import { logout } from "@/services/AuthService";
 
 const userStore = useUserStore();
 
-const logout = () => {
+const onLogout = () => {
   userStore.setUser(null);
-  clearToken();
+  logout();
   router.push({ name: Routes.Home });
 };
 </script>
