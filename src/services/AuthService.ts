@@ -25,7 +25,9 @@ export const signup = async (signupRequest: SignupRequest): Promise<TokenRespons
 };
 
 export const refresh = async (): Promise<TokenResponse> => {
-  const { data } = await axios.get<TokenResponse>(endpoint + "/refresh");
+  const { data } = await axios.get<TokenResponse>(endpoint + "/refresh", {
+    headers: { "Content-Type": `application/x-www-form-urlencoded` }
+  });
 
   return data;
 };

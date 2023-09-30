@@ -4,10 +4,7 @@ import { createPinia } from "pinia";
 import App from "@/App.vue";
 import router from "@/router";
 import { vuetify } from "@/plugins/vuetifyPlugin";
-import axios from "axios";
 import { AxiosPlugin } from "@/plugins/axiosPlugin";
-
-axios.defaults.baseURL = "http://localhost:8000";
 
 const app = createApp(App);
 

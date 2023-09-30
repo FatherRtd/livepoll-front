@@ -9,6 +9,9 @@ const lock = new AsyncLock();
 
 export const AxiosPlugin: Plugin = {
   install() {
+    axios.defaults.baseURL = "http://localhost:8000";
+    axios.defaults.withCredentials = true;
+
     const userStore = useUserStore();
 
     axios.interceptors.request.use(async (request) => {
@@ -51,6 +54,8 @@ export const AxiosPlugin: Plugin = {
               createAxiosResponseInterceptor();
             }
           }
+
+          console.log(error);
 
           return Promise.reject(error);
         }
