@@ -4,7 +4,7 @@ import { getUser } from "@/services/AuthService";
 import { onMounted } from "vue";
 import { useUserStore } from "@/stores/userStore";
 import { User } from "@/models/User";
-import TheUiToolbar from "@/components/Ui/TheUiToolbar.vue";
+import TheUiNavBar from "@/components/Ui/TheUiNavBar.vue";
 
 const userStore = useUserStore();
 
@@ -19,7 +19,7 @@ onMounted(async () => {
 
 <template>
   <div>
-    <TheUiToolbar></TheUiToolbar>
+    <TheUiNavBar></TheUiNavBar>
     <RouterView></RouterView>
   </div>
 </template>

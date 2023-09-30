@@ -16,7 +16,7 @@ export enum Routes {
 export const routes: RouteRecordRaw[] = [
   {
     path: "/",
-    redirect: "/home"
+    redirect: { name: Routes.Home }
   },
   {
     path: "/home",

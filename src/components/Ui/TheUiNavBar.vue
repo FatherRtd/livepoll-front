@@ -18,7 +18,7 @@
 
 <script setup lang="ts">
 import { useUserStore } from "@/stores/userStore";
-import { Routes } from "@/router";
+import router, { Routes } from "@/router";
 import { clearToken } from "@/services/AuthService";
 
 const userStore = useUserStore();
@@ -26,6 +26,7 @@ const userStore = useUserStore();
 const logout = () => {
   userStore.setUser(null);
   clearToken();
+  router.push(Routes.Home);
 };
 </script>
 
