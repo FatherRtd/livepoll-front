@@ -1,9 +1,13 @@
 <template>
-  <div>signup</div>
-  <v-text-field v-model="email"></v-text-field>
-  <v-text-field v-model="name"></v-text-field>
-  <v-text-field v-model="password"></v-text-field>
-  <v-btn @click="testSignup">test signup</v-btn>
+  <v-sheet width="300" class="mx-auto">
+    <v-form fast-fail @submit.prevent>
+      <v-text-field v-model="email" label="Почта" />
+      <v-text-field v-model="name" label="Имя пользователя" />
+      <v-text-field v-model="password" label="Пароль" />
+
+      <v-btn type="submit" block class="mt-2" @click="onSignup">Зарегистрироваться</v-btn>
+    </v-form>
+  </v-sheet>
 </template>
 
 <script setup lang="ts">
@@ -19,7 +23,7 @@ const name = ref("");
 const email = ref("");
 const password = ref("");
 
-const testSignup = async () => {
+const onSignup = async () => {
   const signupRequers: SignupRequest = {
     username: name.value,
     email: email.value,

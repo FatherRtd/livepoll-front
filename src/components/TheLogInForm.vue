@@ -5,7 +5,7 @@
 
       <v-text-field v-model="password" label="Пароль"></v-text-field>
 
-      <v-btn type="submit" block class="mt-2" @click="onLogin">Submit</v-btn>
+      <v-btn type="submit" block class="mt-2" @click="onLogin">Войти</v-btn>
     </v-form>
   </v-sheet>
 </template>
